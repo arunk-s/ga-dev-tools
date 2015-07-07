@@ -26,7 +26,7 @@
     "gulp-plumber": "^1.0.0",
     "gulp-util": "^3.0.4",
     "highlight.js": "^8.5.0",
-    "javascript-api-utils": "https://github.com/arunk-s/ga-dev-tools.git",
+    "javascript-api-utils": "https://github.com/arunk-s/javascript-api-utils.git",
     "lodash": "^3.8.0",
     "mocha": "^2.2.4",
     "node-libs-browser": "^0.5.2",
