@@ -111,9 +111,14 @@ function getInitalQueryParams() {
  * @param {Object} data The object emited by the ViewSelector2's "changeView"
  * event.
  */
+function handleGoals(data){
+	console.log('1');
+  console.log(tagData.getGoalUrls(data.account,data.property,data.view));
+}
+
 function handleViewSelectorChange(data) {
   let {account, property, view} = data;
-
+  handleGoals(data);
   params.set('ids', data.ids);
   state.set('selectedAccountData', clone(data));
 
@@ -131,7 +136,6 @@ function handleViewSelectorChange(data) {
     render();
   });
 }
-
 
 /**
  * Invoked when a user clicks on the segment definition checkbox.

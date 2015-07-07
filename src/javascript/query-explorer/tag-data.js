@@ -38,7 +38,11 @@ function getDimensionTags(account, property, view) {
          (columns) => columns.allDimensions('public'));
 }
 
-
+function getGoals(account,preview,view){
+  console.log("3",arguments);
+  // return metadata.bogus();
+  metadata.getGoals(account,property,view);
+}
 /**
  * Returns a promise that is resolved with an array of all segments this user
  * can access.
@@ -99,4 +103,9 @@ export default {
       return segments;
     });
   },
+
+  getGoalUrls(account,property,view){
+    console.log("2",arguments);
+    return getGoals(account,property,view);
+  }
 }
