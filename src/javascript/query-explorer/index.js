@@ -112,8 +112,7 @@ function getInitalQueryParams() {
  * event.
  */
 function handleGoals(data){
-	console.log('1');
-  console.log(tagData.getGoalUrls(data.account,data.property,data.view));
+  tagData.getGoalUrls(data.account,data.property,data.view);
 }
 
 function handleViewSelectorChange(data) {
