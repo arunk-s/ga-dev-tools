@@ -112,7 +112,7 @@ function getInitalQueryParams() {
  * event.
  */
 function handleGoals(data){
-  tagData.getGoalUrls(data.account,data.property,data.view);
+  return tagData.getGoalUrls(data.account,data.property,data.view);
 }
 
 function handleViewSelectorChange(data) {
