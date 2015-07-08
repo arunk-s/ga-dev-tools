@@ -324,14 +324,33 @@ function handleApiUriFocus() {
 
 
 function handleVwoPush(){
-  var api_token = queryForm.apitoken.value ;
+  var apitoken = queryForm.apitoken.value ;
   var vwo_account = queryForm.vwoaccountid.value;
-  if (x != "")
+  var goal_urls = window.goal_urls ;
+  if (apitoken != "")
   {
-    alert(x);
+    $.ajax({
+              url: '/vwo?api_token='+apitoken+'&vwo_account='+vwo_account+'&goal_urls='+goal_urls,
+              type: 'GET',
+              beforeSend: function(xhr, settings) {
+                  // if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                      // Send the token to same-origin, relative URLs only.
+                      // Send the token only if the method warrants CSRF protection
+                      // Using the CSRFToken value acquired earlier
+                      // var csrftoken = getCookie('csrftoken');
+                      xhr.setRequestHeader("token", apitoken);
+                  // }
+              },
+              success: function(data) {
+                  alert(data);
+              },
+              error: function(jqHR, textStatus, errorThrown) {
+                  alert(textStatus + ': ' + errorThrown);
+              },
+          });
   }
   else {
-    alert("hola");
+    alert("API Token Can't be empty");
   }
   
 }

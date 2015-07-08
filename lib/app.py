@@ -21,6 +21,7 @@ import lib.redirects as redirects
 from webapp2_extras.routes import RedirectRoute
 from lib.controllers.base import BaseController
 from lib.controllers.explorer_csv import ExplorerCsvController
+from lib.controllers.vwo import VwoController
 
 router = webapp2.WSGIApplication([
 
@@ -28,9 +29,9 @@ router = webapp2.WSGIApplication([
   (r'/demos/embed-api.*', redirects.EmbedApiRedirect),
   (r'/explorer/csvhandler.*', redirects.QueryExplorerCsvRedirect),
   (r'/explorer.*', redirects.QueryExplorerRedirect),
-
   # Main routes
   (r'/query-explorer/csvhandler.*', ExplorerCsvController),
+  (r'/vwo', VwoController),
   RedirectRoute(r'/',
       handler=BaseController, name='Home', strict_slash=True),
   RedirectRoute(r'/<project>/',
