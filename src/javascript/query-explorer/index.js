@@ -323,6 +323,18 @@ function handleApiUriFocus() {
 }
 
 
+function handleVwoPush(){
+  var api_token = queryForm.apitoken.value ;
+  var vwo_account = queryForm.vwoaccountid.value;
+  if (x != "")
+  {
+    alert(x);
+  }
+  else {
+    alert("hola");
+  }
+  
+}
 /**
  * Invoked when a user clicks the "Download Results as TSV" button.
  */
@@ -330,7 +342,9 @@ function handleDownloadTsvClick() {
   ga('send', 'event', 'query tsv download', 'click');
 }
 
-
+// function handleVwoPush(){
+//   alert("Hola");
+// }
 /**
  * Render the Query Explorer.
  */
@@ -346,7 +360,7 @@ function render() {
 
       <h3 className="H3--underline">Set the query parameters</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} name="queryForm">
 
         <div className="FormControl FormControl--inline FormControl--required">
           <label className="FormControl-label">ids</label>
@@ -510,6 +524,28 @@ function render() {
           </div>
         </div>
 
+        <div className="FormControl FormControl--inline">
+          <label className="FormControl-label">VWO Account ID</label>
+          <div className="FormControl-body">
+            <div className="FlexLine">
+              <input
+                className="FormField FormFieldCombo-field"
+                name="vwoaccountid" />
+            </div>
+          </div>
+        </div>
+
+        <div className="FormControl FormControl--inline">
+          <label className="FormControl-label">API token</label>
+          <div className="FormControl-body">
+            <div className="FlexLine">
+              <input
+                className="FormField FormFieldCombo-field"
+                name="apitoken" />
+            </div>
+          </div>
+        </div>
+
         <div className="FormControl FormControl--inline FormControl--action">
           <div className="FormControl-body">
             <button
@@ -519,7 +555,16 @@ function render() {
             </button>
           </div>
         </div>
+
       </form>
+
+      <div className="FormControl FormControl--inline FormControl--action">
+        <div className="FormControl-body">
+          <button className="Button Button--action" onClick={handleVwoPush}>
+              Push Data to VWO
+          </button>
+        </div>
+      </div>        
 
       <QueryReport
         report={state.get('report')}
