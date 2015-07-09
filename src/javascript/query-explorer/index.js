@@ -327,7 +327,7 @@ function handleVwoPush(){
   var apitoken = queryForm.apitoken.value ;
   var vwo_account = queryForm.vwoaccountid.value;
   var goal_urls = window.goal_urls ;
-  if (apitoken != "")
+  if (apitoken != "" && vwo_account != "" )
   {
     $.ajax({
               url: '/vwo?api_token='+apitoken+'&vwo_account='+vwo_account+'&goal_urls='+goal_urls,
@@ -361,9 +361,6 @@ function handleDownloadTsvClick() {
   ga('send', 'event', 'query tsv download', 'click');
 }
 
-// function handleVwoPush(){
-//   alert("Hola");
-// }
 /**
  * Render the Query Explorer.
  */
