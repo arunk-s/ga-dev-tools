@@ -327,10 +327,11 @@ function handleVwoPush(){
   var apitoken = queryForm.apitoken.value ;
   var vwo_account = queryForm.vwoaccountid.value;
   var goal_urls = window.goal_urls ;
+  var goal_names = window.goal_names;
   if (apitoken != "" && vwo_account != "" )
   {
     $.ajax({
-              url: '/vwo?api_token='+apitoken+'&vwo_account='+vwo_account+'&goal_urls='+goal_urls,
+              url: '/vwo?api_token='+apitoken+'&vwo_account='+vwo_account+'&goal_urls='+goal_urls+'&goal_names='+goal_names,
               type: 'GET',
               beforeSend: function(xhr, settings) {
                   // if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {

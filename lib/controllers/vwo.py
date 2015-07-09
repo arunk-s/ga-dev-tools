@@ -12,6 +12,7 @@ class VwoController(webapp2.RequestHandler):
         token = self.request.get("api_token")
         account_id = self.request.get("vwo_account")
         goal_urls = self.request.get("goal_urls").split(",")
+        goal_names = self.request.get("goal_names").split(",")
         correct = False
         payload = {
             "type": "conversion",
@@ -27,7 +28,7 @@ class VwoController(webapp2.RequestHandler):
         pattern = re.compile(
             "^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?")
         if token != None and account_id != None and goal_urls != None:
-            for index,goal in enumerate(goal_urls):
+            for index, goal in enumerate(goal_urls):
                 if goal != "" and pattern.match(goal):
                     correct = True
                     if payload["primaryUrl"] == "":
@@ -36,7 +37,7 @@ class VwoController(webapp2.RequestHandler):
                         payload["urls"][0]["value"] = goal
                     payload["goals"].append(
                         {
-                            "name": "New goal"+str(index),
+                            "name": goal_names[index],
                             "type": "visitPage",
                             "urls": [{
                                 "type": "url",
