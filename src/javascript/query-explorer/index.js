@@ -330,6 +330,11 @@ function handleVwoPush(){
   var goal_names = window.goal_names;
   if (apitoken != "" && vwo_account != "" )
   {
+    if (goal_urls.length == 0){
+      alert("No URL Destination Goals Found!");
+      return;
+    }
+
     $.ajax({
               url: '/vwo?api_token='+apitoken+'&vwo_account='+vwo_account+'&goal_urls='+goal_urls+'&goal_names='+goal_names,
               type: 'GET',
