@@ -39,7 +39,7 @@ function getDimensionTags(account, property, view) {
 }
 
 function getGoals(account, property, view){
-  metadata.getGoals(account, property, view);
+  return metadata.getGoals(account, property, view);
 }
 /**
  * Returns a promise that is resolved with an array of all segments this user
